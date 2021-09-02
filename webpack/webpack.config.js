@@ -10,11 +10,28 @@ module.exports = {
   entry: './src/index.tsx',
 
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../build'),
+    // Another case to customize output filename is to emit some kind of assets to a specified directory
+    // https://webpack.js.org/guides/asset-modules/
+    // [hash] stands for random number and alphabet
+    // [ext] stands for Filename Extension .png, .jpg, .html,...
+    // [query] === images
+    assetModuleFilename: 'images/[hash][ext][query]',
   },
 
   module: {
     rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
+      },
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
@@ -23,6 +40,24 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        // webpacck 4 need loader, 5 just need 'asset/resource'
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        // webpacck 4 need loader, 5 just need 'asset/inline'
+        type: 'asset/inline',
+      },
+      //   {
+      //     // generator a folder contain HTML
+      //     test: /\.html/,
+      //     type: 'asset/resource',
+      //     generator: {
+      //       filename: 'static/[hash][ext][query]',
+      //     },
+      //   },
     ],
   },
 

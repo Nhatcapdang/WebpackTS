@@ -20,7 +20,7 @@
     },
     "include": [
         "src/**/*"
-    ]
+, "declarations.d.ts"    ]
 }
 // {
 //     "compilerOptions": {
