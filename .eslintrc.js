@@ -23,8 +23,9 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:eslint-comments/recommended',
     // config prettier
+    // 'plugin:prettier/@typescript-eslint',
     'plugin:prettier/recommended',
-    'plugin:prettier/@typescript-eslint',
+    'prettier',
   ],
   rules: {
     // name package/rules
