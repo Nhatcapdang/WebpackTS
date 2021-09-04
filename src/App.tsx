@@ -1,7 +1,7 @@
-import './style.scss';
-import Image from './asset/1.png';
-import LogoSvg from './asset/react.svg';
-import { Counter } from './Counter';
+import './style.scss'
+import Image from './asset/1.png'
+import LogoSvg from './asset/react.svg'
+import { Counter } from './Counter'
 
 export const App = () => {
   return (
@@ -14,5 +14,5 @@ export const App = () => {
       Nhat cap dang
       <Counter />
     </div>
-  );
-};
+  )
+}

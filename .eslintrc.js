@@ -22,8 +22,9 @@ module.exports = {
     'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
     'plugin:eslint-comments/recommended',
+    // config prettier
     'plugin:prettier/recommended',
-    // 'plugin:prettier/@typescript-eslint',
+    'plugin:prettier/@typescript-eslint',
   ],
   rules: {
     // name package/rules
@@ -38,4 +39,4 @@ module.exports = {
   },
   // To report unused eslint-disable comments, use the reportUnusedDisableDirectives setting. For example:
   reportUnusedDisableDirectives: true,
-};
+}
