@@ -67,6 +67,7 @@ module.exports = {
     }),
   ],
   resolve: {
+    // priority search order
     extensions: ['.tsx', '.ts', '.js'],
   },
 };
