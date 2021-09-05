@@ -1,6 +1,7 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+// eslint-disable-next-line functional/immutable-data
 module.exports = {
   // mode defaults to 'production' if not set, overwrite dev or prod
   mode: 'development',
@@ -63,11 +64,11 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: 'public/index.html',
     }),
   ],
   resolve: {
     // priority search order
     extensions: ['.tsx', '.ts', '.js'],
   },
-};
+}
