@@ -8,10 +8,12 @@ module.exports = {
 
   // This is unnecessary in Webpack 5, because it's the default.
   // However, react-refresh-webpack-plugin can't find the entry without it.
+  // path: path.resolve(__dirname, '..','../build'),
   entry: './src/index.tsx',
 
   output: {
     path: path.resolve(__dirname, '../build'),
+    filename: 'bundle.js',
     // Another case to customize output filename is to emit some kind of assets to a specified directory
     // https://webpack.js.org/guides/asset-modules/
     // [hash] stands for random number and alphabet
