@@ -1,5 +1,5 @@
 import { ReactChild, ReactFragment, ReactPortal } from 'react'
-import { scaleDown as Menu } from 'react-burger-menu'
+import { scaleDown as Menu, State } from 'react-burger-menu'
 import {
   FaDragon,
   FaPaperPlane,
@@ -10,6 +10,8 @@ import {
   FaFirstdraft,
   FaGgCircle,
 } from 'react-icons/fa'
+import { useAppDispatch, useAppSelector } from '../App/hooks'
+import { onOpen } from '../ReducerGlobal/openSideBar'
 import './styles.scss'
 
 const TITLE_SIDEBAR = [
@@ -59,9 +61,13 @@ export default function Sidebar(props: {
     | null
     | undefined
 }) {
-  // const isMenuOpen = function (state: State) {
-  //   return state.isOpen
-  // }
+  const dispatch = useAppDispatch()
+  const isOpen = useAppSelector(state => state.openSideBar.isOpen)
+
+  const isMenuOpen = function (state: State) {
+    dispatch(onOpen(state.isOpen))
+  }
+
   return (
     <div id="outer-container-sidebar">
       <Menu
@@ -69,8 +75,8 @@ export default function Sidebar(props: {
         outerContainerId={'outer-container-sidebar'}
         customCrossIcon={false}
         customBurgerIcon={false}
-        // onStateChange={isMenuOpen}
-        isOpen={true}
+        onStateChange={isMenuOpen}
+        isOpen={isOpen}
       >
         <a href="/">Nhat Cap Dang</a>
 

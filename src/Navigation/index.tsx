@@ -17,6 +17,8 @@ import {
   FaListOl,
   FaAlignRight,
 } from 'react-icons/fa'
+import { useAppDispatch } from '../App/hooks'
+import { onOpen } from '../ReducerGlobal/openSideBar'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -59,6 +61,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }))
 
 export default function Navigation() {
+  const dispatch = useAppDispatch()
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null)
@@ -162,6 +166,7 @@ export default function Navigation() {
       <AppBar position="static">
         <Toolbar>
           <IconButton
+            onClick={() => dispatch(onOpen(true))}
             size="large"
             edge="start"
             color="inherit"

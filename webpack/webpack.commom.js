@@ -9,7 +9,7 @@ module.exports = {
   // This is unnecessary in Webpack 5, because it's the default.
   // However, react-refresh-webpack-plugin can't find the entry without it.
   // path: path.resolve(__dirname, '..','../build'),
-  entry: './src/index.tsx',
+  entry: ['@babel/polyfill', './src/index.tsx'],
 
   output: {
     path: path.resolve(__dirname, '../build'),
