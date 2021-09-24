@@ -10,7 +10,10 @@ import {
   FaFirstdraft,
   FaGgCircle,
 } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../App/hooks'
+import { ROUTER } from '../const'
+import Navigation from '../Navigation'
 import { onOpen } from '../ReducerGlobal/openSideBar'
 import './styles.scss'
 
@@ -18,37 +21,47 @@ const TITLE_SIDEBAR = [
   {
     icon: <FaHeart />,
     title: 'I love you',
-    href: '1',
+    href: ROUTER.I_LOVE_YOU,
   },
   {
     icon: <FaDragon />,
     title: 'Overview',
-    href: '2',
+    href: ROUTER.OVERVIEW,
   },
   {
     icon: <FaSeedling />,
     title: ' Shortcuts',
-    href: '3',
+    href: ROUTER.SHORTCUT,
   },
   {
     icon: <FaStaylinked />,
     title: 'Settings',
-    href: '4',
+    href: ROUTER.SETTINGS,
   },
   {
     icon: <FaKorvue />,
     title: 'Portolio',
-    href: '4',
+    href: ROUTER.PORTOLIO,
   },
   {
     icon: <FaFirstdraft />,
     title: 'Specical',
-    href: '6',
+    href: ROUTER.SPECICAL,
   },
   {
     icon: <FaGgCircle />,
     title: 'Tinder',
-    href: '7',
+    href: ROUTER.TINDER,
+  },
+  {
+    icon: <FaGgCircle />,
+    title: 'Orther',
+    href: ROUTER.ORTHER,
+  },
+  {
+    icon: <FaGgCircle />,
+    title: 'Not found',
+    href: 'sads',
   },
 ]
 
@@ -78,13 +91,13 @@ export default function Sidebar(props: {
         onStateChange={isMenuOpen}
         isOpen={isOpen}
       >
-        <a href="/">Nhat Cap Dang</a>
+        <a href={ROUTER.HOME}>Nhat Cap Dang</a>
 
         {TITLE_SIDEBAR.map((val, index) => (
-          <a href={val.href} key={index}>
+          <Link to={val.href} key={index}>
             {val.icon}
             {val.title}
-          </a>
+          </Link>
         ))}
 
         <a href="/a">
@@ -99,7 +112,10 @@ export default function Sidebar(props: {
           <FaPaperPlane />
         </a>
       </Menu>
-      <main id="page-wrap-sidebar">{props.children}</main>
+      <main id="page-wrap-sidebar">
+        <Navigation />
+        {props.children}
+      </main>
     </div>
   )
 }
