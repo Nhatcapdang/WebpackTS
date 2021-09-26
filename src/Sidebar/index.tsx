@@ -53,16 +53,11 @@ const TITLE_SIDEBAR = [
     title: 'Tinder',
     href: ROUTER.TINDER,
   },
-  {
-    icon: <FaGgCircle />,
-    title: 'Orther',
-    href: ROUTER.ORTHER,
-  },
-  {
-    icon: <FaGgCircle />,
-    title: 'Not found',
-    href: 'sads',
-  },
+  // {
+  //   icon: <FaGgCircle />,
+  //   title: 'Orther',
+  //   href: ROUTER.ORTHER,
+  // },
 ]
 
 export default function Sidebar(props: {
