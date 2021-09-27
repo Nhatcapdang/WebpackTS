@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-// const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -15,6 +15,6 @@ module.exports = {
       'process.env.name': JSON.stringify('Kiet'),
     }),
     // html css change but state not change, not reload again
-    // new ReactRefreshWebpackPlugin(),
+    new ReactRefreshWebpackPlugin(),
   ],
 }
