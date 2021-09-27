@@ -9,31 +9,46 @@ import {
   Redirect,
 } from 'react-router-dom'
 import { ROUTER } from './const'
-import Topics from './components/Other'
+import { lazy, Suspense, useEffect, useState } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
+import Hero from './components/Hero'
+import ErrorFallback from './components/ErrorFallback'
+import SlashSreen from './components/SlashSreen'
+
+const Topics = lazy(() => import('./components/Other'))
 
 export const App = () => {
-  return (
+  const [isSlashScreen, setisSlashScreen] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => setisSlashScreen(false), 1000)
+  }, [])
+
+  return isSlashScreen ? (
+    <SlashSreen />
+  ) : (
     <Provider store={store}>
       <Router>
         <Sidebar>
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path={ROUTER.TINDER}>
-              <About />
-            </Route>
-            <Route path={ROUTER.I_LOVE_YOU}>
-              <About />
-            </Route>
-            <Route path={ROUTER.ORTHER}>
-              <Topics />
-            </Route>
-            <Route
-              // component={NotFound}
-              render={() => <Redirect to="/" />}
-            />
-          </Switch>
+          <ErrorBoundary
+            FallbackComponent={ErrorFallback}
+            onReset={() => {
+              // reset the state of your app so the error doesn't happen again
+            }}
+          >
+            <Suspense fallback={<SlashSreen />}>
+              <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path={ROUTER.TINDER} component={About} />
+                <Route path={ROUTER.I_LOVE_YOU} component={About} />
+                <Route path={ROUTER.ORTHER} component={Topics} />
+                <Route
+                  // component={NotFound}
+                  render={() => <Redirect to="/" />}
+                />
+              </Switch>
+            </Suspense>
+          </ErrorBoundary>
         </Sidebar>
       </Router>
     </Provider>
@@ -44,7 +59,13 @@ function Home() {
 }
 
 function About() {
-  return <div>About</div>
+  return (
+    <div>
+      <Hero heroName="dang" />
+      <Hero heroName="nhat" />
+      <Hero heroName="Iron" />
+    </div>
+  )
 }
 
 // function NotFound() {
