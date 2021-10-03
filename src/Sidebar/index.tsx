@@ -20,8 +20,8 @@ import './styles.scss'
 const TITLE_SIDEBAR = [
   {
     icon: <FaHeart />,
-    title: 'I love you',
-    href: ROUTER.I_LOVE_YOU,
+    title: 'Bitstamp',
+    href: ROUTER.BITS_TAMP,
   },
   {
     icon: <FaDragon />,
@@ -40,8 +40,8 @@ const TITLE_SIDEBAR = [
   },
   {
     icon: <FaKorvue />,
-    title: 'Portolio',
-    href: ROUTER.PORTOLIO,
+    title: 'Chat App',
+    href: ROUTER.CHATAPP,
   },
   {
     icon: <FaFirstdraft />,

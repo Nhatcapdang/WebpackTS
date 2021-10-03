@@ -1,10 +1,10 @@
 export const ROUTER = {
   HOME: '/',
-  I_LOVE_YOU: '/iloveyou',
+  BITS_TAMP: '/bitstamp',
   OVERVIEW: '/overview',
   SHORTCUT: '/shortcut',
   SETTINGS: '/settings',
-  PORTOLIO: '/portolio',
+  CHATAPP: '/chatapp',
   SPECICAL: '/specical',
   TINDER: '/tinder',
   ORTHER: '/orther',

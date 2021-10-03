@@ -16,6 +16,8 @@ import ErrorFallback from './components/ErrorFallback'
 import SlashSreen from './components/SlashSreen'
 
 const Topics = lazy(() => import('./components/Other'))
+const Bitstamp = lazy(() => import('./components/Bitstamp'))
+const ChatApp = lazy(() => import('./components/ChatApp'))
 
 export const App = () => {
   const [isSlashScreen, setisSlashScreen] = useState(true)
@@ -23,7 +25,6 @@ export const App = () => {
   useEffect(() => {
     setTimeout(() => setisSlashScreen(false), 1000)
   }, [])
-
   return isSlashScreen ? (
     <SlashSreen />
   ) : (
@@ -40,7 +41,9 @@ export const App = () => {
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path={ROUTER.TINDER} component={About} />
-                <Route path={ROUTER.I_LOVE_YOU} component={About} />
+                <Route path={ROUTER.BITS_TAMP} component={Bitstamp} />
+                <Route path={ROUTER.OVERVIEW} component={About} />
+                <Route path={ROUTER.CHATAPP} component={ChatApp} />
                 <Route path={ROUTER.ORTHER} component={Topics} />
                 <Route
                   // component={NotFound}

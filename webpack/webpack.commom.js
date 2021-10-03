@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 
 // eslint-disable-next-line functional/immutable-data
 module.exports = {
@@ -67,6 +68,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
+    }),
+    new Dotenv({
+      path: path.resolve(__dirname, '../environment/.env.js'), // load this now instead of the ones in '.env'
     }),
   ],
   resolve: {
