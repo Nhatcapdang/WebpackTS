@@ -160,10 +160,13 @@ export default function Navigation() {
       </MenuItem>
     </Menu>
   )
-
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box
+      sx={{
+        flexGrow: 1,
+      }}
+    >
+      <AppBar position="fixed" sx={{ background: '#11101d' }}>
         <Toolbar>
           <IconButton
             onClick={() => dispatch(onOpen(true))}

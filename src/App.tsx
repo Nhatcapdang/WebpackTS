@@ -66,7 +66,6 @@ function About() {
     <div>
       <Hero heroName="dang" />
       <Hero heroName="nhat" />
-      <Hero heroName="Iron" />
     </div>
   )
 }
