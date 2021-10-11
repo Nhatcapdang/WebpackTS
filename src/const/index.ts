@@ -1,6 +1,7 @@
 export const ROUTER = {
   HOME: '/',
   BITS_TAMP: '/bitstamp',
+  CARD_EFFECTS: '/cardeffect',
   OVERVIEW: '/overview',
   SHORTCUT: '/shortcut',
   SETTINGS: '/settings',

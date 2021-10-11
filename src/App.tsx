@@ -1,4 +1,4 @@
-import './style.scss'
+import './global-styles.scss'
 import Sidebar from './Sidebar'
 import { Provider } from 'react-redux'
 import store from './App/store'
@@ -18,6 +18,7 @@ import SlashSreen from './components/SlashSreen'
 const Topics = lazy(() => import('./components/Other'))
 const Bitstamp = lazy(() => import('./components/Bitstamp'))
 const ChatApp = lazy(() => import('./components/ChatApp'))
+const CardEffects = lazy(() => import('./components/CardEffects'))
 
 export const App = () => {
   const [isSlashScreen, setisSlashScreen] = useState(true)
@@ -40,10 +41,11 @@ export const App = () => {
             <Suspense fallback={<SlashSreen />}>
               <Switch>
                 <Route path="/" exact component={Home} />
-                <Route path={ROUTER.TINDER} component={About} />
                 <Route path={ROUTER.BITS_TAMP} component={Bitstamp} />
-                <Route path={ROUTER.OVERVIEW} component={About} />
                 <Route path={ROUTER.CHATAPP} component={ChatApp} />
+                <Route path={ROUTER.CARD_EFFECTS} component={CardEffects} />
+                <Route path={ROUTER.TINDER} component={About} />
+                <Route path={ROUTER.OVERVIEW} component={About} />
                 <Route path={ROUTER.ORTHER} component={Topics} />
                 <Route
                   // component={NotFound}

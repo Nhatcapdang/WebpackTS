@@ -30,8 +30,8 @@ const TITLE_SIDEBAR = [
   },
   {
     icon: <FaSeedling />,
-    title: ' Shortcuts',
-    href: ROUTER.SHORTCUT,
+    title: ' Card Effects',
+    href: ROUTER.CARD_EFFECTS,
   },
   {
     icon: <FaStaylinked />,
