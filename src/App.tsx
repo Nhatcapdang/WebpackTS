@@ -15,6 +15,8 @@ import { ErrorBoundary } from 'react-error-boundary'
 import Hero from './components/Hero'
 import ErrorFallback from './components/ErrorFallback'
 import SlashSreen from './components/SlashSreen'
+import { useTranslation } from 'react-i18next'
+import { getKey } from './utils'
 
 const Topics = lazy(() => import('./components/Other'))
 const Bitstamp = lazy(() => import('./components/Bitstamp'))
@@ -23,10 +25,13 @@ const CardEffects = lazy(() => import('./components/CardEffects'))
 
 export const App = () => {
   const [isSlashScreen, setisSlashScreen] = useState(true)
+  const { i18n } = useTranslation()
 
   useEffect(() => {
+    i18n.changeLanguage(getKey<string>('Lang'))
     setTimeout(() => setisSlashScreen(false), 1000)
-  }, [])
+  }, [i18n])
+
   return isSlashScreen ? (
     <SlashSreen />
   ) : (

@@ -7,8 +7,9 @@ export default function ToogleLang() {
   const { i18n } = useTranslation()
   const onChangeLang = (val: string) => {
     i18n.changeLanguage(val)
-    setKey('Lang', val)
+    setKey<string>('Lang', val)
   }
+
   return (
     <div
       className="button-cover"
@@ -17,7 +18,11 @@ export default function ToogleLang() {
       }
     >
       <div className="button r" id="button-8">
-        <input type="checkbox" className="checkbox" />
+        <input
+          type="checkbox"
+          className="checkbox"
+          checked={i18n.language === LANG.VI}
+        />
         <div className="knobs">
           <span />
         </div>
