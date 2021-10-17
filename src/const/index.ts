@@ -10,3 +10,8 @@ export const ROUTER = {
   TINDER: '/tinder',
   ORTHER: '/orther',
 }
+
+export const LANG = {
+  EN: 'en',
+  VI: 'vi',
+}

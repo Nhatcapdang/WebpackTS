@@ -1,4 +1,3 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
 import { TextField } from '@mui/material'
 import { ChangeEvent, useEffect, useState } from 'react'
 import './styles.scss'

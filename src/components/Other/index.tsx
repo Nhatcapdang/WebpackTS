@@ -33,6 +33,7 @@ export default function Topics() {
 }
 
 function Topic() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { topicId } = useParams<any>()
 
   return <h3>Requested topic ID: {topicId}</h3>

@@ -6,6 +6,7 @@ export default function ErrorFallback({
   resetErrorBoundary,
 }: {
   error: Error
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   resetErrorBoundary: any
 }) {
   return (

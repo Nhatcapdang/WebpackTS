@@ -17,8 +17,9 @@ import {
   FaListOl,
   FaAlignRight,
 } from 'react-icons/fa'
-import { useAppDispatch } from '../App/hooks'
-import { onOpen } from '../ReducerGlobal/openSideBar'
+import { useAppDispatch } from '../../App/hooks'
+import { onOpen } from '../../ReducerGlobal/openSideBar'
+import ToogleLang from '../ToogleLang'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -47,7 +48,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }))
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
+  color: 'var(--color-text)',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -127,7 +128,7 @@ export default function Navigation() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+        <IconButton size="large" aria-label="show 4 new mails" color="info">
           <Badge badgeContent={4} color="error">
             <FaRocketchat />
           </Badge>
@@ -138,7 +139,7 @@ export default function Navigation() {
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
-          color="inherit"
+          color="info"
         >
           <Badge badgeContent={17} color="error">
             <FaFan />
@@ -152,11 +153,14 @@ export default function Navigation() {
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
-          color="inherit"
+          color="info"
         >
           <FaUserCircle />
         </IconButton>
         <p>Profile</p>
+      </MenuItem>
+      <MenuItem>
+        <ToogleLang />
       </MenuItem>
     </Menu>
   )
@@ -166,13 +170,13 @@ export default function Navigation() {
         flexGrow: 1,
       }}
     >
-      <AppBar position="fixed" sx={{ background: '#11101d' }}>
+      <AppBar position="fixed" sx={{ background: 'var(--color-dark-bg)' }}>
         <Toolbar>
           <IconButton
             onClick={() => dispatch(onOpen(true))}
             size="large"
             edge="start"
-            color="inherit"
+            color="info"
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
@@ -197,19 +201,17 @@ export default function Navigation() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
+            <ToogleLang />
+            <IconButton size="large" aria-label="show 4 new mails" color="info">
               <Badge badgeContent={4} color="error">
                 <FaRocketchat />
               </Badge>
             </IconButton>
+
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
-              color="inherit"
+              color="info"
             >
               <Badge badgeContent={17} color="error">
                 <FaFan />
@@ -222,7 +224,7 @@ export default function Navigation() {
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="inherit"
+              color="info"
             >
               <FaUserCircle />
             </IconButton>
@@ -234,7 +236,7 @@ export default function Navigation() {
               aria-controls={mobileMenuId}
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
-              color="inherit"
+              color="info"
             >
               <FaListOl />
             </IconButton>

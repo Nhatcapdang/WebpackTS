@@ -42,18 +42,18 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   /* General sidebar styles */
   .bm-menu {
-    background: #11101d;
+    background: var(--color-dark-bg);
     font-size: 1.15em;
   }
 
   /* Morph shape necessary with bubble or elastic */
   .bm-morph-shape {
-    fill: #11101d;
+    fill: var(--color-dark-bg);
   }
 
   /* Wrapper for item list */
   .bm-item-list {
-    color: #11101d;
+    color: var(--color-dark-bg);
     height: auto !important;
   }
 
@@ -61,7 +61,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   .bm-item {
     padding: 12px;
-    color: #a7afa7;
+    color: var(--color-text);
     align-items: center;
     display: flex !important;
     cursor: pointer;
@@ -69,7 +69,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
     padding-left: 8px;
     text-decoration: none;
     &:hover {
-      background-color: #e4e9f7;
+      background-color: var(--color-white-2);
     }
     svg {
       padding-right: 10px;
@@ -79,7 +79,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
     justify-content: center;
     margin-top: 0;
     padding: 12px;
-    background: #11101d;
+    background: var(--color-dark-bg);
   }
 
   .bm-item:last-child {
@@ -88,7 +88,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
     position: absolute;
     bottom: 0;
     margin: 0;
-    background: #1d1b31;
+    background: var(--color-dark-bg-2);
     img {
       border-radius: 5px;
       width: 50px;
@@ -98,11 +98,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
     .job {
       font-size: 15px;
       font-weight: 400;
-      color: #a7afa7;
+      color: var(--color-text);
       white-space: nowrap;
     }
     &:last-child:hover {
-      background: #fff;
+      background: var(--color-white);
     }
   }
 

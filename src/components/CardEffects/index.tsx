@@ -2,6 +2,7 @@ import { Grid } from '@mui/material'
 import './styles.scss'
 import { makeStyles } from '@mui/styles'
 import Avatar from '../Avatar'
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles({
   CardEffects: {
@@ -18,6 +19,7 @@ const useStyles = makeStyles({
 
 export default function CardEffects() {
   const classes = useStyles()
+  const { t, i18n } = useTranslation()
   return (
     <div className={classes.CardEffects}>
       <section className="one">
@@ -95,6 +97,12 @@ export default function CardEffects() {
           rotate={10}
           image="https://media.istockphoto.com/photos/astronaut-on-space-walk-looks-at-lights-of-planet-earth-picture-id1255359039"
         />
+        <button onClick={() => i18n.changeLanguage('fr')}>
+          change Language
+        </button>
+        <button onClick={() => i18n.changeLanguage('en')}>
+          change Language s
+        </button>
       </section>
       <section className="one">
         <Grid
@@ -128,7 +136,7 @@ export default function CardEffects() {
             <div className="box-2">
               <span></span>
               <div className="box-content">
-                <h2>cared</h2>
+                <h2>{t('Welcome to React')}</h2>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                   Totam minus velit aspernatur magnam blanditiis autem,

@@ -1,5 +1,5 @@
-import { ReactChild, ReactFragment, ReactPortal } from 'react'
 import { scaleDown as Menu, State } from 'react-burger-menu'
+import { useTranslation } from 'react-i18next'
 import {
   FaDragon,
   FaPaperPlane,
@@ -11,11 +11,12 @@ import {
   FaGgCircle,
 } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '../App/hooks'
-import { ROUTER } from '../const'
-import Navigation from '../Navigation'
-import { onOpen } from '../ReducerGlobal/openSideBar'
+import { useAppDispatch, useAppSelector } from '../../App/hooks'
+import { ROUTER } from '../../const'
+import { onOpen } from '../../ReducerGlobal/openSideBar'
+import DarkMode from '../DarkMode'
 import './styles.scss'
+import Navigation from '../Navigation'
 
 const TITLE_SIDEBAR = [
   {
@@ -60,17 +61,10 @@ const TITLE_SIDEBAR = [
   },
 ]
 
-export default function Sidebar(props: {
-  children:
-    | boolean
-    | ReactChild
-    | ReactFragment
-    | ReactPortal
-    | null
-    | undefined
-}) {
+export default function Sidebar(props: { children?: React.ReactNode }) {
   const dispatch = useAppDispatch()
   const isOpen = useAppSelector(state => state.openSideBar.isOpen)
+  const { t } = useTranslation()
 
   const isMenuOpen = function (state: State) {
     dispatch(onOpen(state.isOpen))
@@ -86,15 +80,18 @@ export default function Sidebar(props: {
         onStateChange={isMenuOpen}
         isOpen={isOpen}
       >
-        <a href={ROUTER.HOME}>Nhat Cap Dang</a>
+        <a href={ROUTER.HOME}>{t('Nhat Cap Dang')}</a>
 
         {TITLE_SIDEBAR.map((val, index) => (
           <Link to={val.href} key={index}>
             {val.icon}
-            {val.title}
+            {t(val.title)}
           </Link>
         ))}
-
+        <div>
+          {t('Theme')}
+          <DarkMode />
+        </div>
         <a href="/a">
           <img
             src="https://images.unsplash.com/photo-1631348676438-cc95021461d6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"

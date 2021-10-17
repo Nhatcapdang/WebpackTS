@@ -55,7 +55,6 @@ function Bitstamp() {
     //clean up function
     return () => ws.close()
   }, [])
-
   return (
     <Grid
       container

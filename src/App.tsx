@@ -1,6 +1,7 @@
-import './global-styles.scss'
-import Sidebar from './Sidebar'
+import './styles/index.scss'
+import Sidebar from './components/Sidebar'
 import { Provider } from 'react-redux'
+import './i18next'
 import store from './App/store'
 import {
   BrowserRouter as Router,
@@ -71,7 +72,3 @@ function About() {
     </div>
   )
 }
-
-// function NotFound() {
-//   return <h2 style={{ backgroundColor: 'pink' }}>Not found</h2>
-// }
