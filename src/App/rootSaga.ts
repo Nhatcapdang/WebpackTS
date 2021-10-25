@@ -11,7 +11,7 @@ import {
 import axios from 'axios'
 import { IPosts, IResponse } from '../interface'
 
-const URL = 'the-first-server.herokuapp.com'
+const URL = 'https://the-first-server.herokuapp.com'
 
 export const fetchPosts = () => axios.get(`${URL}/posts`)
 export const createPostServer = (payload: IPosts) =>
