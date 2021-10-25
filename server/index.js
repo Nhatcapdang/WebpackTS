@@ -1,17 +1,31 @@
-const WebSocket = require('ws')
+import express from 'express'
+import cors from 'cors'
+import bodyParser from 'body-parser'
+import router from './routers/posts.js'
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
 
-const wss = new WebSocket.Server({ port: 8082 })
-wss.on('connection', ws => {
-  console.log('Client connected')
+dotenv.config()
 
-  ws.on('message', function incoming(message) {
-    message = Buffer.from(message).toString('utf8')
-    // console.log('Client send some', JSON.parse(message))
-    console.log(message)
-    ws.send(message)
+const app = express()
+const PORT = process.env.PORT || 5000
+const URI = process.env.DATABASE_URL
+
+app.use(cors())
+app.use(bodyParser.json({ limit: '30mb' }))
+app.use(bodyParser.urlencoded({ extended: true, limit: '30mb' }))
+
+// http://localhost:5000/posts
+app.use('/posts', router)
+
+mongoose
+  .connect(URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to DB')
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`)
+    })
   })
-
-  ws.on('close', () => {
-    console.log('Client disconnected')
+  .catch(err => {
+    console.log('err', err)
   })
-})
