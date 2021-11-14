@@ -17,6 +17,7 @@ import ErrorFallback from './components/ErrorFallback'
 import SlashSreen from './components/SlashSreen'
 import { useTranslation } from 'react-i18next'
 import { getKey } from './utils'
+import Post from './components/Posts'
 
 const Topics = lazy(() => import('./components/Other'))
 const Bitstamp = lazy(() => import('./components/Bitstamp'))
@@ -50,7 +51,7 @@ export const App = () => {
                 <Route path={ROUTER.BITS_TAMP} component={Bitstamp} />
                 <Route path={ROUTER.CHATAPP} component={ChatApp} />
                 <Route path={ROUTER.CARD_EFFECTS} component={CardEffects} />
-                <Route path={ROUTER.TINDER} component={About} />
+                <Route path={ROUTER.TINDER} component={Post} />
                 <Route path={ROUTER.OVERVIEW} component={About} />
                 <Route path={ROUTER.ORTHER} component={Topics} />
                 <Route
